@@ -1,6 +1,8 @@
 # 果汁搜盘 juicePans
 
-> 纯 Python 标准库的多引擎网盘资源聚合搜索工具 / 通用skill —— 多源并行检索、链接存活核验、四级状态机、零第三方依赖。
+> **姊妹项目**：若需要 **浏览器本地搜盘 / 绿色版 / Docker 部署**，请使用独立仓库 [juicePans-web](https://github.com/sxsxhhh/juicePans-web)。本仓库是 **AI Skill / 命令行** 版本。
+
+纯 Python 标准库的多引擎网盘资源聚合搜索工具 / 通用skill —— 多源并行检索、链接存活核验、四级状态机、零第三方依赖。
 
 ---
 
