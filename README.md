@@ -29,9 +29,18 @@
 
 ## 安装方法
 
+### 下载
+
+前往 [**Releases**](https://github.com/sxsxhhh/juicePans/releases/latest) 下载：
+
+| 文件 | 用途 |
+|------|------|
+| `juicePans-*-skill.zip` | AI Skill 压缩包：拖拽到 Cursor / Codex 等对话框安装 |
+| `juicePans-*-web-green.zip` | 绿色版便携包：解压后双击 start.bat 即可用浏览器本地搜索 |
+
 ### 作为通用skill安装
 
-无需手动复制目录：点击[**此处下载skill**](https://github.com/sxsxhhh/juicePans/releases/latest)获取最新压缩包，然后直接将压缩包拖拽到技能框上传，或在对话中安装技能（在本地或云电脑模式中输入「安装此skill」并附上压缩包），即可完成安装。
+下载 skill 压缩包后，直接将其拖拽到技能框上传，或在对话中安装技能（在本地或云电脑模式中输入「安装此skill」并附上压缩包），即可完成安装。
 
 > **搭配转存（可选）**：本工具只搜不转存；如需保存资源，可搭配夸克网盘、百度网盘等官方 skill / 插件使用，将核验通过的分享链接一键转存到自己的网盘，并自动过滤链接内夹带的广告文件。
 
@@ -122,7 +131,8 @@ juicePans/
 │   └── docker-compose.yml   # Docker Compose 配置
 ├── docs/
 │   ├── deploy-local.md      # 本地 Python 部署指南
-│   └── deploy-docker.md     # Docker 部署指南
+│   ├── deploy-docker.md     # Docker 部署指南
+│   └── deploy-green.md      # 绿色版（解压即用）教程
 └── references/              # 数据源清单、接口细节、合规红线等参考文档
 ```
 
@@ -131,6 +141,12 @@ juicePans/
 `web/` 目录提供了一个**浏览器本地 UI**，可在本机或 Docker 中运行，供不使用 AI Skill CLI 的场景使用。
 
 > **与 AI Skill CLI 的区别**：`scripts/search.py` 是供 AI 调用的命令行工具；`web/` 是独立的浏览器前端站点，二者功能类似但使用方式不同。`scripts/deploy.sh` 用于部署上游 PanSou 索引服务，与本 Web 站点无关。
+
+### 绿色版（解压即用）
+
+从 [Releases](https://github.com/sxsxhhh/juicePans/releases) 下载 `*-web-green.zip`，解压后双击 `start.bat`（Windows）或 `bash start.sh`（macOS/Linux），浏览器打开 `http://127.0.0.1:8765/` 即可使用。需要 Python 3.8+。
+
+详见：[docs/deploy-green.md](docs/deploy-green.md)
 
 ### 本地 Python 启动
 
@@ -170,6 +186,7 @@ docker compose up -d --build
 | 1.5.0       | 综合排序、引擎熔断、关键词变体兜底、域名表补全                |
 | 1.6.0       | 8 类匿名核验、失效链沉底、限流退避、展示优化                |
 | 1.6.1–1.6.2 | 各源耗时统计、`--pansou_timeout` 可调超时         |
+| 1.7.0       | 新增本地 Web 站点 `web/`、Docker 部署、绿色版便携包    |
 
 ## 致谢 / 参考项目
 
