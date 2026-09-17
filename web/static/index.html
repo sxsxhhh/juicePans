@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>果汁搜盘 · juicePans</title>
+  <link rel="stylesheet" href="/app.css?v=20260917d" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">果</div>
+      <div>
+        <h1>果汁搜盘</h1>
+        <div class="brand-meta">
+          <p class="tagline">多源公开网盘检索 · 本地绿色版</p>
+          <a class="wechat-chip" href="#" title="微信搜索并添加，备注：进交流群" onclick="return false;">
+            <img class="wechat-logo" src="/icons/wechat.png" alt="微信" width="22" height="22" />
+            <span class="wechat-text">加微信备注进交流群</span>
+            <span class="wechat-id">sxsxhh2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="badge">公开检索（未核验）</div>
+  </header>
+
+  <main class="shell">
+    <section class="search-panel glass">
+      <form id="searchForm" autocomplete="off">
+        <div class="search-row">
+          <input id="q" type="search" name="q" placeholder="输入片名、资源名，例如：庆余年" required />
+          <button type="submit" id="btnSearch">搜索</button>
+          <button type="button" id="btnAbort" class="btn-abort" hidden>终止</button>
+        </div>
+        <div class="opts-row">
+          <label class="switch-row" title="打开后对搜索结果做链接存活检验（确认失效会隐藏；会更慢）">
+            <input type="checkbox" id="optValidate" class="switch-input" />
+            <span class="switch" aria-hidden="true"><span class="switch-knob"></span></span>
+            <span class="switch-text">检验链接存活</span>
+          </label>
+        </div>
+      </form>
+
+      <div class="tabs" id="cloudTabs" role="tablist" aria-label="网盘类型">
+        <!-- filled by JS -->
+      </div>
+
+      <div class="engines">
+        <span class="engines-label">引擎</span>
+        <label><input type="checkbox" name="engine" value="pansou" checked /> 盘搜</label>
+        <label><input type="checkbox" name="engine" value="yunso" checked /> 小云</label>
+        <label><input type="checkbox" name="engine" value="haisou" checked /> 海搜</label>
+        <label class="opt"><input type="checkbox" name="engine" value="panxiaozi" checked /> 盘小子</label>
+        <label class="opt"><input type="checkbox" name="engine" value="ghspider" /> TG库</label>
+      </div>
+    </section>
+
+    <section class="status" id="status" hidden></section>
+    <section class="results" id="results"></section>
+  </main>
+
+  <footer class="foot">
+    <span>果汁搜盘 juicePans · 仅聚合公开来源 · 不存储账号</span>
+    <span class="foot-wechat">
+      <img src="/icons/wechat.png" alt="微信" width="18" height="18" />
+      加微信备注进交流群：<strong>sxsxhh2</strong>
+    </span>
+    <span>本地 http://127.0.0.1:8765/</span>
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>

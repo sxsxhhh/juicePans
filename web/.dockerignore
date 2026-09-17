@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+*.md
+使用说明.txt
+docs/
+start.bat

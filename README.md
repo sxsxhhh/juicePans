@@ -110,11 +110,49 @@ Windows 控制台建议先执行 `$env:PYTHONUTF8=1` 设置 UTF-8 编码。
 juicePans/
 ├── SKILL.md                 # 通用skill描述文件
 ├── scripts/
-│   ├── search.py            # 多引擎聚合搜索
+│   ├── search.py            # 多引擎聚合搜索（CLI）
 │   ├── check_links.py       # 链接存活核验 + 四级状态机
 │   └── deploy.sh            # 自建 PanSou Docker 部署脚本
+├── web/                     # 本地浏览器 UI 站点（独立于 AI Skill CLI）
+│   ├── server.py            # 本地 Web 服务
+│   ├── search_core.py       # 搜索核心模块
+│   ├── check_links.py       # 链接核验模块
+│   ├── static/              # 前端静态资源
+│   ├── Dockerfile           # Docker 构建文件
+│   └── docker-compose.yml   # Docker Compose 配置
+├── docs/
+│   ├── deploy-local.md      # 本地 Python 部署指南
+│   └── deploy-docker.md     # Docker 部署指南
 └── references/              # 数据源清单、接口细节、合规红线等参考文档
 ```
+
+## 本地 Web / Docker 部署
+
+`web/` 目录提供了一个**浏览器本地 UI**，可在本机或 Docker 中运行，供不使用 AI Skill CLI 的场景使用。
+
+> **与 AI Skill CLI 的区别**：`scripts/search.py` 是供 AI 调用的命令行工具；`web/` 是独立的浏览器前端站点，二者功能类似但使用方式不同。`scripts/deploy.sh` 用于部署上游 PanSou 索引服务，与本 Web 站点无关。
+
+### 本地 Python 启动
+
+```bash
+cd web
+python3 server.py
+# 浏览器打开 http://127.0.0.1:8765/
+```
+
+环境变量：`JUICEPANS_HOST`（默认 127.0.0.1）、`JUICEPANS_PORT`（默认 8765）
+
+详见：[docs/deploy-local.md](docs/deploy-local.md)
+
+### Docker 部署
+
+```bash
+cd web
+docker compose up -d --build
+# 访问 http://<主机IP>:8765/
+```
+
+无 compose 插件时可用 `docker run` 手动启动，详见：[docs/deploy-docker.md](docs/deploy-docker.md)
 
 ## 定位与红线
 

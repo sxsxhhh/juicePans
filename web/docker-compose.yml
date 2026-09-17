@@ -1,0 +1,10 @@
+services:
+  juicepans:
+    build: .
+    container_name: juicepans
+    ports:
+      - "8765:8765"
+    environment:
+      JUICEPANS_HOST: "0.0.0.0"
+      JUICEPANS_PORT: "8765"
+    restart: unless-stopped
